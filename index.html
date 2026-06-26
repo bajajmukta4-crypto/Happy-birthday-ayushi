@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ayushi ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9ec4,#ffd6e8,#ffeaa7);
+}
+
+.container{
+text-align:center;
+z-index:10;
+padding:20px;
+}
+
+button{
+padding:18px 45px;
+font-size:24px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4f8b;
+cursor:pointer;
+box-shadow:0 0 25px rgba(255,255,255,.8);
+transition:.3s;
+font-weight:bold;
+}
+
+button:hover{
+transform:scale(1.08);
+}
+
+.hidden{
+display:none;
+}
+
+h1{
+font-family:Pacifico,cursive;
+font-size:65px;
+color:white;
+text-shadow:2px 2px 15px hotpink;
+animation:pop 1s ease;
+}
+
+p{
+margin-top:25px;
+font-size:20px;
+color:white;
+max-width:800px;
+line-height:1.8;
+animation:fade 2s;
+}
+
+@keyframes pop{
+0%{transform:scale(0);}
+100%{transform:scale(1);}
+}
+
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+.heart{
+position:absolute;
+font-size:28px;
+animation:float 8s linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+100%{
+transform:translateY(-120vh);
+opacity:1;
+}
+}
+
+.confetti{
+position:absolute;
+width:10px;
+height:10px;
+animation:fall 4s linear forwards;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-20px) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(720deg);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<button id="btn">🎁 Click Me</button>
+
+<div id="message" class="hidden">
+
+<h1>🎉 Happy Birthday Ayushi! 🎂</h1>
+
+<p>
+
+Two years may not seem like forever, but they've given me countless memories that I'll always cherish.
+Thank you for being my best friend, for standing by me through laughter, random conversations, silly moments, and everything in between.
+Life feels brighter with you in it.
+I hope this birthday fills your heart with happiness, your days with laughter, and your future with success.
+Never stop being the amazing person you are.
+
+❤️ Happy Birthday once again, Ayushi! ❤️
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+const btn=document.getElementById("btn");
+const msg=document.getElementById("message");
+
+btn.onclick=function(){
+
+btn.style.display="none";
+
+msg.classList.remove("hidden");
+
+createConfetti();
+
+setInterval(createHeart,300);
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["💖","💕","💗","💝","🎈"][Math.floor(Math.random()*5)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*30)+"px";
+
+heart.style.animationDuration=(5+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},9000);
+
+}
+
+function createConfetti(){
+
+const colors=["#ff4d6d","#ffd60a","#00bbf9","#06d6a0","#ff99c8","#ffffff"];
+
+for(let i=0;i<250;i++){
+
+const c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.background=colors[Math.floor(Math.random()*colors.length)];
+
+c.style.animationDuration=(2+Math.random()*3)+"s";
+
+c.style.transform="rotate("+Math.random()*360+"deg)";
+
+document.body.appendChild(c);
+
+setTimeout(()=>{
+
+c.remove();
+
+},5000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
